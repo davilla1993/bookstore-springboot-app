@@ -9,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.follytech.bookstore.domain.User;
 
@@ -24,8 +24,8 @@ public class PasswordResetToken {
 
     private String token;
 
-    @OneToMany(targetEntity = User.class, fetch = FetchType.EAGER)
-    @JoinColumn(nullable = false, name = "user_id")
+    @OneToOne(targetEntity=User.class, fetch=FetchType.EAGER)
+    @JoinColumn(nullable=false, name="user_id")
     private User user;
 
     private Date expiryDate;
